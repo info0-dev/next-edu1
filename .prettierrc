@@ -4,7 +4,7 @@
   "singleAttributePerLine": true,
   "bracketSameLine": true,
   "endOfLine": "auto",
-  "trailingComma": "none",
+  "trailingComma": "all",
   "arrowParens": "avoid",
   "plugins": ["prettier-plugin-tailwindcss"]
 }

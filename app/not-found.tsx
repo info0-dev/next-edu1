@@ -7,6 +7,7 @@ export default function NotFound() {
   const router = useRouter()
   useEffect(() => {
     router.prefetch('/')
+    // eslint-disable-next-line
   }, [])
 
   function handleClick() {
