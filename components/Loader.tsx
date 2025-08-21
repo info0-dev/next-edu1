@@ -6,6 +6,7 @@ interface LoaderProps {
   weight?: number
   duration?: number
   className?: string
+  position?: 'relative' | 'absolute' | 'fixed'
 }
 
 export default function Loader({
@@ -13,7 +14,8 @@ export default function Loader({
   color = '#0374FF',
   weight = 3,
   duration = 1,
-  className = ''
+  className = '',
+  position = 'absolute'
 }: LoaderProps) {
   const loaderStyle: CSSProperties = {
     width: size,
@@ -38,7 +40,7 @@ export default function Loader({
       </style>
       <div
         style={loaderStyle}
-        className={`absolute top-0 right-0 bottom-0 left-0 m-auto ${className}`}
+        className={`${position} top-0 right-0 bottom-0 left-0 m-auto ${className}`}
       />
     </>
   )

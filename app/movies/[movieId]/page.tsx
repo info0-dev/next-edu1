@@ -21,6 +21,7 @@ export default function MovieDetails({
 
   useEffect(() => {
     fetchMovie()
+    // eslint-disable-next-line
   }, [])
 
   async function fetchMovie() {
