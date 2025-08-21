@@ -1,5 +1,4 @@
 import './globals.css'
-import Header from '@/components/Header'
 
 // 글꼴 계열
 // serif - 바탕체
@@ -10,16 +9,13 @@ import Header from '@/components/Header'
 // nestjs는 구글 font에서 사용하는 모든 폰트 내장, cdn을 사용할 필요가 없음
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="ko">
-      <body className={`antialiased`}>
-        <Header />
-        {children}
-      </body>
+      <body className={`antialiased`}>{children}</body>
     </html>
   )
 }
