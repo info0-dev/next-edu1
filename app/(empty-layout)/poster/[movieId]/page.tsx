@@ -9,7 +9,7 @@ export default async function Poster({
 }) {
   const movieId = await params
   const { data: movie } = await axios<Movie>(
-    `https://omdbapi.com?apikey=7035c60c&i=${movieId}`,
+    `${process.env.OMDB_URL}&i=${movieId}`,
   )
   return (
     <>

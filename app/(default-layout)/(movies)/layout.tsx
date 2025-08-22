@@ -1,15 +1,15 @@
 export default function RootLayout({
   children,
-  p,
+  poster,
 }: {
   children: React.ReactNode
-  p: React.ReactNode
+  poster: React.ReactNode
 }) {
   return (
     <>
       <h1>Sub Layout</h1>
       {children}
-      {p}
+      {poster}
     </>
   )
 }

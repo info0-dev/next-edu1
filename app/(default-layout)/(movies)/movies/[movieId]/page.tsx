@@ -28,7 +28,7 @@ export default async function MovieDetails({
   return (
     <>
       <h1>{movie.Title}</h1>
-      <Link href={`/poster/${movie.imdbID}`}>
+      <Link href={`/poster/${movieId}`}>
         <Image
           src={movie.Poster}
           alt={movie.Title}
