@@ -1,6 +1,36 @@
 import axios from 'axios'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const generateMetadata = async ({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ movieId: string }>
+  searchParams: Promise<{ plot: string }>
+}): Promise<Metadata> => {
+  const { movieId } = await params
+  const { plot = 'short' } = await searchParams
+  const res = await fetch(
+    `https://omdbapi.com?apikey=7035c60c&i=${movieId}&plot=${plot}`,
+    {
+      cache: 'force-cache',
+    },
+  )
+  const movie: Movie = await res.json()
+
+  const title = movie.Title
+  const description = movie.Plot
+  const image = movie.Poster
+
+  return {
+    title,
+    description,
+    openGraph: { title, description, images: [image] },
+    twitter: { title, description, images: [image] },
+  }
+}
 
 export interface Movie {
   Title: string
