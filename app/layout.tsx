@@ -6,7 +6,10 @@ const title = 'Next.js Demo App'
 const description = 'Samsung Electronics React 심화 과정'
 const image = 'https://picsum.photos/500'
 export const metadata: Metadata = {
-  title,
+  title: {
+    template: `%s | ${title}`,
+    default: title,
+  },
   description,
   openGraph: {
     title,

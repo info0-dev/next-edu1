@@ -48,11 +48,13 @@ export default async function MovieDetails({
 }) {
   const { movieId } = await params
   const { plot = 'short' } = await searchParams
-  await new Promise(resolve => setTimeout(resolve, 2000))
-  const { data: movie } = await axios<Movie>(
+  const res = await fetch(
     `https://omdbapi.com?apikey=7035c60c&i=${movieId}&plot=${plot}`,
+    {
+      cache: 'force-cache',
+    },
   )
-
+  const movie: Movie = await res.json()
   // throw new Error('에러 발생👍')
 
   return (
